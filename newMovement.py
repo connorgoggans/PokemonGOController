@@ -23,8 +23,8 @@ def clickAction():
 
 
 def main():
-    lastLat = 36.152847
-    lastLng = -86.795847
+    lastLat = 40.748408  # starting latitude
+    lastLng = -73.985621  # starting longitude
     stdscr = curses.initscr()
     curses.cbreak()
     stdscr.keypad(1)
@@ -34,18 +34,19 @@ def main():
     stdscr.refresh()
 
     key = ''
+    speed = 0.0002  # increment value for directions
     while key != ord('q'):
         key = stdscr.getch()
         stdscr.addch(20, 25, key)
         stdscr.refresh()
         if key == curses.KEY_UP:
-            lastLat += 0.0002
+            lastLat += speed
         elif key == curses.KEY_DOWN:
-            lastLat -= 0.0002
+            lastLat -= speed
         elif key == curses.KEY_LEFT:
-            lastLng -= 0.0002
+            lastLng -= speed
         elif key == curses.KEY_RIGHT:
-            lastLng += 0.0002
+            lastLng += speed
         generateXML(lastLat, lastLng)
         clickAction()
 
