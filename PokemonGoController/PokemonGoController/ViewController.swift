@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  PokemonGoController
 //
-//  Created by Connor Goggans on 7/12/16.
+//  Created by Connor Goggans on 11/11/16.
 //  Copyright © 2016 Connor Goggans. All rights reserved.
 //
 

@@ -15,21 +15,22 @@ def generateXML(lastLat, lastLng):
 
 
 def clickAction():
-    auto.click(x=480, y=257)  # coordinates of simulate location button
+    auto.click(x=540, y=594)  # coordinates of simulate location button
     time.sleep(1)
-    auto.click(x=480, y=650)  # coordinates of .gpx file selection
+    auto.click(x=675, y=647)  # coordinates of .gpx file selection
     time.sleep(1)
-    auto.click(x=1000, y=490)  # coordinates of terminal window
+    auto.click(x=1191, y=389)  # coordinates of terminal window
 
 
 def main():
-    lastLat = 40.748408  # starting latitude
-    lastLng = -73.985621  # starting longitude
+    lastLat = input("Enter the Lat: ")
+    lastLat = float(lastLat)  # starting latitude
+    lastLng = input("Enter the Lng: ")
+    lastLng = float(lastLng)  # starting longitude
+    generateXML(lastLat, lastLng)
     stdscr = curses.initscr()
     curses.cbreak()
     stdscr.keypad(1)
-
-    stdscr.addstr(0, 10, "Hit 'q' to quit")
 
     stdscr.refresh()
 
@@ -37,8 +38,6 @@ def main():
     speed = 0.0002  # increment value for directions
     while key != ord('q'):
         key = stdscr.getch()
-        stdscr.addch(20, 25, key)
-        stdscr.refresh()
         if key == curses.KEY_UP:
             lastLat += speed
         elif key == curses.KEY_DOWN:
